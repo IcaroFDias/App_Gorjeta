@@ -37,6 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_subtitle">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_total"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite valor total da compra"
@@ -52,27 +53,73 @@
         app:layout_constraintTop_toBottomOf="@+id/til_total">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tie_numberP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite o numero de pessoas a dividir"
-            android:inputType="numberDecimal" />
+            android:inputType="number"
+            android:maxLength="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/vertical_guideline"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+    <RadioGroup
+        android:id="@+id/rg_percetege"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Limpar"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/til_Npeople"
         app:layout_constraintStart_toStartOf="@+id/til_Npeople"
-        app:layout_constraintTop_toBottomOf="@+id/til_Npeople" />
+        app:layout_constraintTop_toBottomOf="@+id/til_Npeople">
+
+        <RadioButton
+            android:id="@+id/rboptionone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10%" />
+
+        <RadioButton
+            android:id="@+id/rboptiontwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="15%" />
+
+        <RadioButton
+            android:id="@+id/rboptionthree"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="20%" />
+
+    </RadioGroup>
+
 
     <Button
-        android:layout_marginTop="8dp"
-
+        android:id="@+id/btn_clean"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="4dp"
+        android:text="Limpar"
+        app:layout_constraintEnd_toStartOf="@+id/vertical_guideline"
+        app:layout_constraintStart_toStartOf="@+id/til_Npeople"
+        app:layout_constraintTop_toBottomOf="@+id/rg_percetege" />
+
+    <Button
+        android:id="@+id/btn_calcular"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="@+id/til_Npeople"
-        app:layout_constraintTop_toBottomOf="@+id/til_Npeople" />
+        app:layout_constraintStart_toStartOf="@+id/vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/rg_percetege" />
 </androidx.constraintlayout.widget.ConstraintLayout>

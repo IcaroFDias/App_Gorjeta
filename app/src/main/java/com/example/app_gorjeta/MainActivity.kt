@@ -1,6 +1,7 @@
 package com.example.app_gorjeta
 
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
@@ -41,11 +42,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        val adapter = ArrayAdapter.createFromResource(
+            this,
+            R.array.num_people,
+            android.R.layout.simple_spinner_item
+        )
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spnierNpeople.adapter = adapter
 
         binding.btnClean.setOnClickListener {
 
             binding.tieTotal.setText("")
-            binding.tieNumberP.setText("")
             binding.rgPercetege.clearCheck()
 
         }
@@ -53,20 +61,20 @@ class MainActivity : AppCompatActivity() {
         binding.btnCalcular.setOnClickListener {
 
             val totalTableTemp = binding.tieTotal.text
-            val NpeopleTemp = binding.tieNumberP.text
 
-            if(totalTableTemp?.isEmpty() == true || NpeopleTemp?.isEmpty() == true ){
+
+            if(totalTableTemp?.isEmpty() == true){
                 Snackbar
                     .make(binding.tieTotal, "Preencha os campos", Snackbar.LENGTH_LONG).show()
             } else {
 
             val totalTable : Float = totalTableTemp.toString().toFloat()
-            val nPeople : Int = NpeopleTemp.toString().toInt()
+            val nPeople : Int = 5
 
             val totalAmount = totalTable / nPeople
             val tips = totalAmount * percentage / 100
             val totalFinal = totalAmount + tips
-            println("O total por pessoa é " + totalFinal.toString() + " reais")
+            binding.tvResult.text = "Total with tips = $totalFinal"
              }
         }
 

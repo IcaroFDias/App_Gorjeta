@@ -1,6 +1,8 @@
 package com.example.app_gorjeta
 
 import android.os.Bundle
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -51,6 +53,22 @@ class MainActivity : AppCompatActivity() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spnierNpeople.adapter = adapter
 
+        var numofpeople = 0
+        binding.spnierNpeople.onItemSelectedListener =
+
+            object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view : View?,
+                    position : Int,
+                    id : Long) {
+                    numofpeople = position
+                }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+            }
+
         binding.btnClean.setOnClickListener {
 
             binding.tieTotal.setText("")
@@ -69,7 +87,7 @@ class MainActivity : AppCompatActivity() {
             } else {
 
             val totalTable : Float = totalTableTemp.toString().toFloat()
-            val nPeople : Int = 5
+            val nPeople : Int = numofpeople
 
             val totalAmount = totalTable / nPeople
             val tips = totalAmount * percentage / 100

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">App_Gorjeta</string>
     <string-array name="num_people">
+        <item>0</item>>
         <item>1</item>
         <item>2</item>
         <item>3</item>

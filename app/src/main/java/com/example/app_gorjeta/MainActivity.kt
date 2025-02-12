@@ -1,5 +1,6 @@
 package com.example.app_gorjeta
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -92,10 +93,22 @@ class MainActivity : AppCompatActivity() {
             val totalAmount = totalTable / nPeople
             val tips = totalAmount * percentage / 100
             val totalFinal = totalAmount + tips
-            binding.tvResult.text = "Total with tips = $totalFinal"
+
+
+            val intent = Intent(this, Summeryactivity::class.java)
+                intent.apply {
+                    putExtra("totalTable", totalTable)
+                    putExtra("nPeople", numofpeople)
+                    putExtra("percentage", percentage)
+                    putExtra("totalFinal",totalFinal)
+                }
+                startActivity(intent)
+
              }
         }
 
 
     }
+
+
 }

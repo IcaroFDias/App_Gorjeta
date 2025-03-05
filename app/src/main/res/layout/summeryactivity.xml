@@ -24,7 +24,6 @@
         android:text="Summary"
         android:textSize="32dp"
         android:layout_margin="16dp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -63,4 +62,62 @@
         android:text="5"
         app:layout_constraintEnd_toEndOf="@+id/tv_total_amount"
         app:layout_constraintTop_toBottomOf="@+id/tv_total_amount" />
+
+    <TextView
+        android:id="@+id/tv_Percetage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Porcetagem de gorjeta"
+        app:layout_constraintStart_toStartOf="@+id/tv_Nbmer_People"
+        app:layout_constraintTop_toBottomOf="@+id/tv_Nbmer_People" />
+
+    <TextView
+        android:id="@+id/tv_value_percetage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="15%"
+        app:layout_constraintEnd_toEndOf="@+id/tv_total_people"
+        app:layout_constraintTop_toBottomOf="@+id/tv_total_people" />
+
+    <View
+        android:id="@+id/Separate"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/black"
+
+        app:layout_constraintTop_toBottomOf="@+id/tv_Percetage" />
+
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Total por pessoa: "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tv_Nbmer_People"
+        app:layout_constraintTop_toBottomOf="@+id/Separate" />
+
+    <TextView
+        android:id="@+id/tv_totalamount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="R$ 40,50"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_total_people"
+        app:layout_constraintTop_toBottomOf="@+id/Separate" />
+
+    <Button
+        android:id="@+id/btn_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="Refresh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

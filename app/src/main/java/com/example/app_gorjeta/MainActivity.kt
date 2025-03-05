@@ -70,12 +70,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-        binding.btnClean.setOnClickListener {
-
-            binding.tieTotal.setText("")
-            binding.rgPercetege.clearCheck()
-
-        }
 
         binding.btnCalcular.setOnClickListener {
 
@@ -102,12 +96,25 @@ class MainActivity : AppCompatActivity() {
                     putExtra("percentage", percentage)
                     putExtra("totalFinal",totalFinal)
                 }
+                clean()
                 startActivity(intent)
 
              }
         }
 
+        binding.btnClean.setOnClickListener {
 
+            clean()
+
+        }
+
+
+    }
+
+    private fun clean (){
+
+        binding.tieTotal.setText("")
+        binding.rgPercetege.clearCheck()
     }
 
 
